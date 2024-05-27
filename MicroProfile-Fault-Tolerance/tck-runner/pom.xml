@@ -126,6 +126,20 @@
 
     <profiles>
         <profile>
+            <id>CI</id>
+            <build>
+                <plugins>
+                    <plugin>        
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                          <skipITs>true</skipITs>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>                
+        </profile>
+        <profile>
             <id>mp-ft-1.1</id>
             <activation>
                 <property>
@@ -138,17 +152,6 @@
                 <microprofile.fault-tolerance.tck.version>1.1.1.payara-p2</microprofile.fault-tolerance.tck.version>
                 <microprofile.fault-tolerance.tck.suite>stable-no-ext-libs-tck-suite.xml</microprofile.fault-tolerance.tck.suite>
             </properties>
-            <build>
-                <plugins>
-                    <plugin>        
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <configuration>
-                          <skipITs>true</skipITs>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
         </profile>
         <profile>
             <id>mp-ft-2.0</id>

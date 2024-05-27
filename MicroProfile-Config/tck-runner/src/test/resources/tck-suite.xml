@@ -8,16 +8,6 @@
                 <exclude name="org.eclipse.microprofile.config.tck.broken"/>
             </package>
         </packages>
-        
-        <!-- class below is excluded because the test requires the environment variables 
-        my_string_property and MY_STRING_PROPERTY with different values, impossible in Jenkins-->
-        <classes>
-            <class name="org.eclipse.microprofile.config.tck.CDIPropertyNameMatchingTest">
-                <methods>
-                   <exclude name=".*"/>                 
-                </methods>
-            </class>
-        </classes>
     </test>
 
 </suite>

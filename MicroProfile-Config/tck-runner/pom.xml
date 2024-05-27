@@ -267,5 +267,21 @@
                 <microprofile.config.tck.version>1.4</microprofile.config.tck.version>
             </properties>
         </profile>
+        
+        <profile>
+            <id>CI</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>${basedir}/src/test/resources/tck-suite-ci.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 </project>
