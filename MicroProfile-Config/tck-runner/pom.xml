@@ -161,12 +161,6 @@
                                             </message>
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
-                                            <variableName>MY_STRING_PROPERTY</variableName>
-                                            <message>
-                                                Missing environment variable MY_STRING_PROPERTY - it should be set to woohoo. Make sure you set it globally and restart the server.
-                                            </message>
-                                        </requireEnvironmentVariable>
-                                        <requireEnvironmentVariable>
                                             <variableName>MP_CONFIG_CACHE_DURATION</variableName>
                                             <message>
                                                 Missing environment variable MP_CONFIG_CACHE_DURATION - it should be set to 0. Make sure you set it globally and restart the server.
@@ -272,6 +266,22 @@
                 <microprofile.config.version>1.4</microprofile.config.version>
                 <microprofile.config.tck.version>1.4</microprofile.config.tck.version>
             </properties>
+        </profile>
+        
+        <profile>
+            <id>CI</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>${basedir}/src/test/resources/tck-suite-ci.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>
